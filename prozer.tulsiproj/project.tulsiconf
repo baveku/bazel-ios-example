@@ -1,0 +1,12 @@
+{
+  "configDefaults" : {
+    "optionSet" : {
+
+    }
+  },
+  "packages" : [
+    "Prozer"
+  ],
+  "projectName" : "Prozer",
+  "workspaceRoot" : ".."
+}

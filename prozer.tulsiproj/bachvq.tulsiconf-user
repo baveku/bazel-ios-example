@@ -1,0 +1,10 @@
+{
+  "optionSet" : {
+    "BazelPath" : {
+      "p" : "/usr/local/bin/bazel"
+    },
+    "WorkspaceRootPath" : {
+      "p" : "/Users/bachvq/Workspace/Project/prozer/Prozer"
+    }
+  }
+}

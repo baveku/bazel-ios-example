@@ -1,0 +1,15 @@
+{
+  "additionalFilePaths" : [
+    "Prozer/BUILD"
+  ],
+  "buildTargets" : [
+    "//Prozer:Prozer"
+  ],
+  "optionSet" : {
+
+  },
+  "projectName" : "Prozer",
+  "sourceFilters" : [
+    "Prozer"
+  ]
+}
