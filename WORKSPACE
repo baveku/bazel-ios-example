@@ -7,8 +7,13 @@ http_archive(
 
 http_archive(
     name = "rules_pods",
-    urls = ["https://github.com/pinterest/PodToBUILD/releases/download/4.0.0-599a84c/PodToBUILD.zip"],
-	sha256 = "219ddd0f77c3321aa6c6a40d6cbdd385319790f4d349a66ab0c4a9123cac4c50"
+    urls = ["https://github.com/pinterest/PodToBUILD/releases/download/4.0.0-599a84c/PodToBUILD.zip"]
+)
+
+http_archive(
+    name = "build_bazel_rules_swift",
+    sha256 = "f872c0388808c3f8de67e0c6d39b0beac4a65d7e07eff3ced123d0b102046fb6",
+    url = "https://github.com/bazelbuild/rules_swift/releases/download/0.23.0/rules_swift.0.23.0.tar.gz",
 )
 
 load(
@@ -38,5 +43,9 @@ load(
 )
 
 apple_support_dependencies()
+
+load("@bazel_skylib//:workspace.bzl", "bazel_skylib_workspace")
+
+bazel_skylib_workspace()
 
 load("@rules_pods//BazelExtensions:workspace.bzl", "new_pod_repository")
