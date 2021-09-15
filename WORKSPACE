@@ -8,6 +8,7 @@ http_archive(
 http_archive(
     name = "rules_pods",
     urls = ["https://github.com/pinterest/PodToBUILD/releases/download/4.0.0-599a84c/PodToBUILD.zip"],
+	sha256 = "219ddd0f77c3321aa6c6a40d6cbdd385319790f4d349a66ab0c4a9123cac4c50"
 )
 
 load(

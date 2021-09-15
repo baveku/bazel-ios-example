@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Vendor_PINCache_PINCache
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

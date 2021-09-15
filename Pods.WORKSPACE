@@ -32,12 +32,19 @@ new_pod_repository(
 new_pod_repository(
 	name = "Moya",
 	url = "https://github.com/Moya/Moya/archive/15.0.0.zip",
-	user_options = ["Core.deps += //Vendor/Alamofire:Alamofire"],
+	user_options = ["Core.deps += //Vendor/Alamofire:Alamofire", "RxSwift.deps += //Vendor/RxSwift:RxSwift"],
 	generate_module_map = False,
   	generate_header_map = True,
 )
 
 new_pod_repository(
 	name = "Alamofire",
-	url = "https://github.com/Alamofire/Alamofire/archive/5.4.3.zip"
+	url = "https://github.com/Alamofire/Alamofire/archive/5.4.3.zip",
+	generate_header_map = True,
+)
+
+new_pod_repository(
+	name = "RxSwift",
+	url = "https://github.com/ReactiveX/RxSwift/archive/6.2.0.zip",
+	generate_header_map = True,
 )
