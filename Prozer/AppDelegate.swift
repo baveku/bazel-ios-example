@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import submodules_LibTest_SwiftLib
+import SwiftLib
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
