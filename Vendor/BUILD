@@ -6,18 +6,18 @@ dynamic_xcframwork(
 	deps = [":PINRemoteImage"]
 )
 
-static_framework(
+dynamic_framework(
 	name = "PINRemoteImage",
-	path = "Carthage/iOS/PINRemoteImage.framework",
+	path = "Carthage/Build/iOS/PINRemoteImage.framework",
 	deps = [":PINCache", ":PINOperation"]
 )
 
-static_framework(
+dynamic_framework(
 	name = "PINCache",
 	path = "Carthage/Build/iOS/PINCache.framework",
 )
 
-static_framework(
+static_xcframework(
 	name = "PINOperation",
-	path = "Carthage/Build/iOS/PINOperation.framework",
+	path = "Carthage/Build/PINOperation.xcframework",
 )
