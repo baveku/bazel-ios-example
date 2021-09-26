@@ -7,7 +7,8 @@
     }
   },
   "packages" : [
-    "Prozer"
+    "Prozer",
+    "submodules/LibTest"
   ],
   "projectName" : "Prozer",
   "workspaceRoot" : ".."

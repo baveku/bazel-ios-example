@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import AsyncDisplayKit
+import submodules_LibTest_SwiftLib
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,8 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let node = ASDisplayNode()
-        window?.rootViewController = UINavigationController(rootViewController: ASDKViewController(node: node))
+        let w = Whatehell()
+        window?.rootViewController = UINavigationController(rootViewController: w.vc)
         window?.makeKeyAndVisible()
         return true
     }

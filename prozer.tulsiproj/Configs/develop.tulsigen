@@ -3,7 +3,8 @@
     "Prozer/BUILD"
   ],
   "buildTargets" : [
-    "//Prozer:Prozer"
+    "//Prozer:Prozer",
+    "//submodules/LibTest:SwiftLib"
   ],
   "optionSet" : {
     "BazelBuildOptionsDebug" : {
@@ -48,6 +49,9 @@
   },
   "projectName" : "Prozer",
   "sourceFilters" : [
-    "Prozer"
+    "Prozer",
+    "submodules",
+    "submodules/LibTest",
+    "submodules/LibTest/Sources"
   ]
 }
