@@ -13,7 +13,7 @@ swift_library(
 	visibility = ["//visibility:public"],
 	data = [":Assets"],
 	deps = [
-		"//Vendor/Texture:Texture"
+		"//Vendor:Texture"
 	]
 )
 

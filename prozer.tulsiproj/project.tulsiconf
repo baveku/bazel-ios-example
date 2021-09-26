@@ -1,7 +1,9 @@
 {
   "configDefaults" : {
     "optionSet" : {
-
+      "CLANG_CXX_LANGUAGE_STANDARD" : {
+        "p" : "c++11"
+      }
     }
   },
   "packages" : [

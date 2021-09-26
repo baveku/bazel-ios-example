@@ -1,3 +1,9 @@
 {
-	"git.ignoreLimitWarning": true
+	"git.ignoreLimitWarning": true,
+	"editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace, 'Hack Nerb Font'",
+	"editor.lineHeight": 1.6,
+	"terminal.integrated.lineHeight": 1.4,
+	"editor.lineNumbers": "off",
+	"html.format.wrapLineLength": 0,
+	"files.autoSave": "onWindowChange"
 }

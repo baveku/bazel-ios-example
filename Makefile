@@ -21,16 +21,9 @@ bootstrap: fetch build test run
 app_graph:
 	$(BAZEL) query --noimplicit_deps --notool_deps 'deps($(MAIN_APP))' --output graph | dot -Tpng > graph.png
 
-# Fetch vendored pods if there's a Pods.WORKSPACE. In normal operation it isn't
-# expected to run `update_pods` along with a build.
-#
-# Generally, this would be ran when dependencies are updated, and then,
-# dependencies _would_ be checked in.
-vendorize:
-	$(BAZEL) run @rules_pods//:update_pods $(BAZEL_OPTS) -- --src_root $(PWD)
 
 fetch: info
-	[[ ! -f Pods.WORKSPACE ]] || $(MAKE) vendorize
+	carthage update --platform iOS --use-xcframeworks --use-xcframeworks
 	$(BAZEL) fetch :*
 
 dep_graph:
