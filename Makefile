@@ -23,7 +23,7 @@ app_graph:
 
 
 fetch: info
-	carthage update --platform iOS --use-xcframeworks --use-xcframeworks
+	carthage update --platform iOS --use-xcframeworks --cache-builds
 	$(BAZEL) fetch :*
 
 dep_graph:

@@ -31,22 +31,26 @@ def dynamic_framework(
     name,
     path,
     visibility = ["//visibility:public"],
+	**kwargs
     ):
     apple_dynamic_framework_import(
         name = name,
-        framework_imports = native.glob([path + "/**",]),
+        framework_imports = native.glob(["%s/**" % path,]),
         visibility = visibility,
+		**kwargs
     )
 
 def static_framework(
     name,
     path,
     visibility = ["//visibility:public"],
+	**kwargs
     ):
     apple_static_framework_import(
         name = name,
-        framework_imports = native.glob([path + "/**",]),
+        framework_imports = native.glob(["%s/**" % path,]),
         visibility = visibility,
+		**kwargs
     )
 
 def swift_unit_test(
@@ -138,15 +142,9 @@ def dynamic_xcframwork(name, path, **kwargs):
     apple_dynamic_framework_import(
         name = name,
         framework_imports = select({
-            "//config:develop": native.glob([
-                 "{path}/ios-arm64_i386_x86_64-simulator/**".format(path = path),
-            ]),
-            "//config:release": native.glob([
-                 "{path}/ios-arm64_armv7/**".format(path = path),
-            ]),
-            "//conditions:default": native.glob([
-                 "{path}/ios-arm64_i386_x86_64-simulator/**".format(path = path),
-            ])
+            "//config:develop": native.glob(["{path}/ios-arm64_i386_x86_64-simulator/{name}.framework/**".format(path = path, name = name)]),
+            "//config:release": native.glob(["{path}/ios-arm64_armv7/{name}.framework/**".format(path = path, name = name)]),
+            "//conditions:default": native.glob(["{path}/ios-arm64_i386_x86_64-simulator/{name}.framework/**".format(path = path, name = name)]),
         }),
         visibility = ["//visibility:public"],
         **kwargs
@@ -156,15 +154,9 @@ def static_xcframework(name, path, **kwargs):
     apple_static_framework_import(
         name = name,
         framework_imports = select({
-            "//config:develop": native.glob([
-                 "{path}/ios-arm64_i386_x86_64-simulator/**".format(path = path),
-            ]),
-            "//config:release": native.glob([
-                 "{path}/ios-arm64_armv7/**".format(path = path),
-            ]),
-            "//conditions:default": native.glob([
-                 "{path}/ios-arm64_i386_x86_64-simulator/**".format(path = path),
-            ])
+            "//config:develop": native.glob(["{path}/ios-arm64_i386_x86_64-simulator/{name}.framework/**".format(path = path, name = name)]),
+            "//config:release": native.glob(["{path}/ios-arm64_armv7/{name}.framework/**".format(path = path, name = name)]),
+            "//conditions:default": native.glob(["{path}/ios-arm64_i386_x86_64-simulator/{name}.framework/**".format(path = path, name = name)]),
         }),
         visibility = ["//visibility:public"],
         **kwargs
