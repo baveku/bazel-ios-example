@@ -2,7 +2,7 @@
 
 -   Sample app using Carthage + Bazel
 
-## sample using bazel + PODToBuild
+## Install Dependencies
 
 -   Step 1: Install bazel:
 

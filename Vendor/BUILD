@@ -1,5 +1,5 @@
 
-load('//config:rules_carthage.bzl', 'dynamic_xcframwork', 'static_xcframework', 'dynamic_framework', 'static_framework')
+load('//bazel:rules_apple.bzl', 'dynamic_xcframwork', 'static_xcframework', 'dynamic_framework', 'static_framework')
 dynamic_xcframwork(
 	name = "AsyncDisplayKit",
 	path = "Carthage/Build/AsyncDisplayKit.xcframework",
@@ -21,3 +21,5 @@ static_xcframework(
 	name = "PINOperation",
 	path = "Carthage/Build/PINOperation.xcframework",
 )
+
+

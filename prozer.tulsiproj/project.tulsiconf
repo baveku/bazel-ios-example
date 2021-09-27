@@ -11,7 +11,7 @@
   },
   "packages" : [
     "Prozer",
-    "submodules/LibTest"
+    "Submodules/LibTest"
   ],
   "projectName" : "Prozer",
   "workspaceRoot" : ".."

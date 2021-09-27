@@ -1,10 +1,7 @@
-load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
+load("//bazel:rules_apple.bzl", "submodule", "submodule_unit_test", "submodule_dynamic")
 
-swift_library(
+submodule_unit_test(
     name = "SwiftLib",
-    module_name = "SwiftLib",
-    srcs = glob(["Sources/*.swift"]),
-    copts = ["-warnings-as-errors"],
 	visibility = ["//visibility:public"],
 	deps = [
 		"//Vendor:AsyncDisplayKit"

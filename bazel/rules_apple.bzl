@@ -16,12 +16,12 @@ load(
 )
 
 load(
-    "//config:configs.bzl", 
+    "//bazel:configs.bzl", 
     "swift_library_compiler_flags",
 )
 
 load(
-    "//config:constants.bzl", 
+    "//bazel:constants.bzl", 
     "SWIFT_VERSION",
     "MINIMUM_OS_VERSION",
     "PRODUCT_BUNDLE_IDENTIFIER_PREFIX",
@@ -75,7 +75,7 @@ def swift_unit_test(
         visibility = visibility,
     )
 
-def first_party_library(
+def submodule_dynamic(
     name,
     deps = [],
     test_deps = [],
@@ -106,37 +106,46 @@ def first_party_library(
         visibility = visibility,
     )
 
-
-def application(
+def submodule_unit_test(
     name,
-    infoplist,
     deps = [],
     test_deps = [],
-    app_icons = [],
-    resources = [],
+    swift_compiler_flags = [],
     swift_version = SWIFT_VERSION,
+    visibility = ["//visibility:public"],
+    ):
+    
+    swift_unit_test(
+        name = name,
+        srcs = native.glob(["Tests/**/*.swift"]),
+        deps = test_deps,
+    )
+
+    swift_library(
+        name = name,
+        module_name = name,
+        srcs = native.glob(["Sources/**/*.swift"]),
+        deps = deps,
+        copts = swift_compiler_flags + swift_library_compiler_flags() + ["-swift-version", swift_version],
+        visibility = visibility,
+    )
+
+def submodule(
+    name,
+    deps = [],
+    swift_compiler_flags = [],
+    swift_version = SWIFT_VERSION,
+    visibility = ["//visibility:public"],
     ):
 
-    first_party_library(
-        name = name + "Lib",
-        deps = deps,
-        test_deps = test_deps,
-        swift_version = swift_version,
-    )
-
-    ios_application(
+    swift_library(
         name = name,
-        bundle_id = PRODUCT_BUNDLE_IDENTIFIER_PREFIX + name,
-        families = [
-            "iphone",
-        ],
-        app_icons = app_icons,
-        resources = resources,
-        infoplists = [infoplist],
-        minimum_os_version = MINIMUM_OS_VERSION,
-        deps = deps + [":" + name + "Lib"],
+        module_name = name,
+        srcs = native.glob(["Sources/**/*.swift"]),
+        deps = deps,
+        copts = swift_compiler_flags + swift_library_compiler_flags() + ["-swift-version", swift_version],
+        visibility = visibility,
     )
-
 
 def dynamic_xcframwork(name, path, **kwargs):
     apple_dynamic_framework_import(

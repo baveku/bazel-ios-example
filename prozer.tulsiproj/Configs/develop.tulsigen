@@ -4,7 +4,7 @@
   ],
   "buildTargets" : [
     "//Prozer:Prozer",
-    "//submodules/LibTest:SwiftLib"
+    "//Submodules/LibTest:SwiftLibTests"
   ],
   "optionSet" : {
     "BazelBuildOptionsDebug" : {
@@ -50,8 +50,9 @@
   "projectName" : "Prozer",
   "sourceFilters" : [
     "Prozer",
-    "submodules",
-    "submodules/LibTest",
-    "submodules/LibTest/Sources"
+    "Submodules",
+    "Submodules/LibTest",
+    "Submodules/LibTest/Sources",
+    "Submodules/LibTest/Tests"
   ]
 }
