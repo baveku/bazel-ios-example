@@ -5,9 +5,12 @@
 ## sample using bazel + PODToBuild
 
 -   Step 1: Install bazel:
-    brew install bazel
+
+        brew install bazel
+
 -   Step 2: Install Carthage:
-    brew install carthage
+
+        brew install carthage
 
     -   Generate App Graph(Optional):
 
