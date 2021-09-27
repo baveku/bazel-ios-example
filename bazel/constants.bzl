@@ -1,7 +1,8 @@
 SWIFT_VERSION = "5"
 MINIMUM_OS_VERSION = "10.0"
 PRODUCT_BUNDLE_IDENTIFIER_PREFIX = "dev.josbach"
-
+BUILD_NUMBER = "22"
+APP_VERSION = "1.0.0"
 # Compiler flags
 SWIFT_COMPILER_FLAGS = [
     # Look at the files as a unit instead of separately: compilation is faster
