@@ -1,4 +1,5 @@
 git "https://chromium.googlesource.com/webm/libwebp" "v0.6.0"
+github "ReactiveX/RxSwift" "6.2.0"
 github "TextureGroup/Texture" "3.1.0"
 github "pinterest/PINCache" "3.0.1-beta.7"
 github "pinterest/PINOperation" "1.2.1"

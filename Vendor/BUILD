@@ -1,8 +1,9 @@
 
 load('//bazel:rules_apple.bzl', 'dynamic_xcframwork', 'static_xcframework', 'dynamic_framework', 'static_framework')
-dynamic_xcframwork(
+
+dynamic_framework(
 	name = "AsyncDisplayKit",
-	path = "Carthage/Build/AsyncDisplayKit.xcframework",
+	path = "Carthage/Build/iOS/AsyncDisplayKit.framework",
 	deps = [":PINRemoteImage", ":PINCache"]
 )
 
@@ -18,9 +19,7 @@ dynamic_framework(
 	deps = [":PINOperation"]
 )
 
-dynamic_xcframwork(
+dynamic_framework(
 	name = "PINOperation",
-	path = "Carthage/Build/PINOperation.xcframework",
+	path = "Carthage/Build/iOS/PINOperation.framework",
 )
-
-

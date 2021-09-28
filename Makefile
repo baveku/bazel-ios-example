@@ -1,7 +1,7 @@
 BAZEL=bazel
 MAIN_APP=//Prozer:Prozer
 APP_NAME=Prozer
-
+CARTHAGE =./carthage.sh
 BAZEL_OPTS=--apple_platform_type=ios
 
 .PHONY : fetch build test run bootstrap kill_xcode project clean
@@ -23,7 +23,7 @@ app_graph:
 
 
 fetch: info
-	cd $(PWD)/Vendor; carthage update --platform iOS --use-xcframeworks --cache-builds
+	cd $(PWD)/Vendor; $(CARTHAGE) update --platform iOS --cache-builds --no-build; $(CARTHAGE) build --platform iOS;
 	$(BAZEL) fetch :*
 
 dep_graph:

@@ -6,6 +6,4 @@ open class Whatehell {
     public init() {}
 }
 
-public final class UserNode: ASDisplayNode {
-    
-}
+public final class UserNode: ASDisplayNode {}

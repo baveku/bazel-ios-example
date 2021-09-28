@@ -1,1 +1,2 @@
 github "TextureGroup/Texture"
+github "ReactiveX/RxSwift" "6.2.0"
