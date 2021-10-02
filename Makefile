@@ -23,7 +23,7 @@ app_graph:
 
 
 fetch: info
-	cd $(PWD)/Vendor; $(CARTHAGE) update --platform iOS --cache-builds --no-build; $(CARTHAGE) build --platform iOS;
+	cd $(PWD)/Vendor; $(CARTHAGE) update --platform iOS --cache-builds;
 	$(BAZEL) fetch :*
 
 dep_graph:
@@ -44,3 +44,10 @@ kill_xcode:
 
 info:
 	$(BAZEL) info
+
+carthage_clean:
+	rm -rf ~/Library/Caches/org.carthage.CarthageKit
+	rm -rf /Vendor/Carthage
+
+create_module:
+	sh ./templates/create_module.sh
