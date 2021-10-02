@@ -19,7 +19,7 @@ bootstrap: fetch build test run
 	echo "Done"
 
 app_graph:
-	$(BAZEL) query --noimplicit_deps --notool_deps 'deps($(MAIN_APP))' --output graph | dot -Tpng > graph.png
+	$(BAZEL) query --noimplicit_deps --notool_deps --graph:node_limit=1 --graph:conditional_edges_limit=1 'deps($(MAIN_APP))' --output graph | dot -Tpng > graph.png
 
 
 fetch: info
