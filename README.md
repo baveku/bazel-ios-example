@@ -18,14 +18,19 @@
 
 -   Step 3: using Make to build App
     -   Sync deps:
-        ```bash
-        make fetch
-        ```
+        
+			make fetch
+
     -   Build App:
-        ```bash
-        make build
-        ```
+        
+			make build
 
 ## Dependencies graph
 
 ![alt text](graph.png "App Graph")
+
+# Make script
+
+## Create Module
+
+	make create_module
