@@ -1,6 +1,6 @@
 BAZEL=bazel
-MAIN_APP=//App:Prozer
-APP_NAME=Prozer
+MAIN_APP=//App:App
+APP_NAME=app
 CARTHAGE =./carthage.sh
 BAZEL_OPTS=--apple_platform_type=ios
 
