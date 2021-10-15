@@ -20,8 +20,8 @@ swift_library(
 )
 
 ios_application(
-    name = "Prozer",
-    bundle_id = "{PRODUCT_BUNDLE_IDENTIFIER_PREFIX}.prozer".format(PRODUCT_BUNDLE_IDENTIFIER_PREFIX = PRODUCT_BUNDLE_IDENTIFIER_PREFIX),
+    name = "App",
+    bundle_id = "{PRODUCT_BUNDLE_IDENTIFIER_PREFIX}.app".format(PRODUCT_BUNDLE_IDENTIFIER_PREFIX = PRODUCT_BUNDLE_IDENTIFIER_PREFIX),
     families = [
         "iphone",
         "ipad",

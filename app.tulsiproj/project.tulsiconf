@@ -1,0 +1,13 @@
+{
+  "configDefaults" : {
+    "optionSet" : {
+
+    }
+  },
+  "packages" : [
+    "App",
+    "Submodules/LibTest"
+  ],
+  "projectName" : "app",
+  "workspaceRoot" : ".."
+}

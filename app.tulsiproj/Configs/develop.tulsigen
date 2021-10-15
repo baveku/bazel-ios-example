@@ -1,9 +1,10 @@
 {
   "additionalFilePaths" : [
-    "Prozer/BUILD"
+    "App/BUILD",
+    "Submodules/LibTest/BUILD"
   ],
   "buildTargets" : [
-    "//Prozer:Prozer",
+    "//App:App",
     "//Submodules/LibTest:SwiftLibTests"
   ],
   "optionSet" : {
@@ -47,9 +48,9 @@
       "p" : "$(inherited)"
     }
   },
-  "projectName" : "Prozer",
+  "projectName" : "app",
   "sourceFilters" : [
-    "Prozer",
+    "App",
     "Submodules",
     "Submodules/LibTest",
     "Submodules/LibTest/Sources",
