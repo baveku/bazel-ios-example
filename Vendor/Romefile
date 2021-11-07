@@ -1,0 +1,55 @@
+cache:
+  local: ~/Library/Caches/Rome
+  s3Bucket: NAME_S3
+repositoryMap:
+  - IGListKit:
+      - name: IGListKit
+        platforms: [iOS]
+      - name: IGListDiffKit
+        platforms: [iOS]
+  - Promises:
+      - name: FBLPromises
+        platforms: [iOS]
+      - name: Promise
+        platforms: [iOS]
+  - Moya:
+      - name: Moya
+        platforms: [iOS]
+      - name: RxMoya
+        platforms: [iOS]
+  - NVActivityIndicatorView:
+      - name: NVActivityIndicatorView
+        platforms: [iOS]
+      - name: NVActivityIndicatorViewExtended
+        platforms: [iOS]
+  - Texture:
+      - name: AsyncDisplayKit
+        platforms: [iOS]
+      - name: PINCache
+        platforms: [iOS]
+      - name: PINOperation
+        platforms: [iOS]
+      - name: PINRemoteImage
+        platforms: [iOS]
+  - RxSwift:
+      - name: RxSwift
+        platforms: [iOS]
+      - name: RxRelay
+        platforms: [iOS]
+      - name: RxTest
+        platforms: [iOS]
+      - name: RxCocoa
+        platforms: [iOS]
+      - name: RxBlocking
+        platforms: [iOS]
+  - componentkit:
+      - name: ComponentKit
+        platforms: [iOS]
+      - name: CKSwift
+        platforms: [iOS]
+      - name: RenderCore    
+        platforms: [iOS]
+      - name: CKTextSwift
+        platforms: [iOS]
+      - name: ComponentTextKit
+        platforms: [iOS]

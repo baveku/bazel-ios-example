@@ -1,19 +1,19 @@
 BAZEL=bazel
-MAIN_APP=//App:App
+MAIN_APP=//App:BazelApp
 APP_NAME=app
-CARTHAGE =./carthage.sh
+CARTHAGE =./sync.sh
 BAZEL_OPTS=--apple_platform_type=ios
 
 .PHONY : fetch build test run bootstrap kill_xcode project clean
 
 build:
-	$(BAZEL) build $(MAIN_APP) $(BAZEL_OPTS)
+	$(BAZEL) build $(MAIN_APP) $(BAZEL_OPTS) --define scheme=release
 
 test:
-	$(BAZEL) test :* $(BAZEL_OPTS)
+	$(BAZEL) test :* $(BAZEL_OPTS) --define scheme=develop
 
 run:
-	$(BAZEL) run $(MAIN_APP) $(BAZEL_OPTS)
+	$(BAZEL) run $(MAIN_APP) $(BAZEL_OPTS) --define scheme=release
 
 bootstrap: fetch build test run
 	echo "Done"
@@ -36,7 +36,8 @@ clean: kill_xcode
 	$(BAZEL) clean
 
 project: kill_xcode
-	scripts/tulsigen $(APP_NAME).tulsiproj Develop
+	scripts/tulsigen $(APP_NAME).tulsiproj develop
+	xed .
 
 kill_xcode:
 	killall Xcode || true

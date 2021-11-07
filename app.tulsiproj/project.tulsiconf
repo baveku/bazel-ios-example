@@ -6,6 +6,7 @@
   },
   "packages" : [
     "App",
+    "Submodules/AppUI",
     "Submodules/LibTest"
   ],
   "projectName" : "app",

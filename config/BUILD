@@ -1,7 +1,15 @@
 config_setting(
     name = "develop",
     values = {
-        "define": "environment=develop",
+        "define": "scheme=develop",
+    },
+    visibility = ["//visibility:public"],
+)
+
+config_setting(
+    name = "staging",
+    values = {
+        "define": "scheme=staging",
     },
     visibility = ["//visibility:public"],
 )
@@ -9,7 +17,7 @@ config_setting(
 config_setting(
     name = "release",
     values = { 
-        "define": "environment=release",
+        "define": "scheme=release",
     },
     visibility = ["//visibility:public"],
 )

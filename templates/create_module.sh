@@ -6,9 +6,9 @@
 SelectOptions() {
 	# Display Help
 	echo "Create module with options:"
-	echo "1     Embedded Unit Test"
-	echo "2     Without Unit Test"
-	echo "3     Without Template"
+	echo "1     Swift only Sources"
+	echo "2     Embedded Unit Test"
+	echo "3     None"
 	echo "----------------------------"
 }
 
@@ -21,7 +21,7 @@ SelectOptions() {
 ############################################################
 # Get the options
 SelectOptions
-read -n 1 -p "1. Select template(default=3): " mainmenuinput
+read -n 1 -p "1. Select template(default=1): " mainmenuinput
 echo ""
 MODULE_NAME=""
 TEMPLATE_PATH=""
@@ -35,7 +35,7 @@ CopyTemplate() {
 RenameTemplate() {
 	echo "-----Initializing...-----\n"
 	file_regex="s/__MODULE_NAME__/${MODULE_NAME}/g"
-	find ${PWD}/submodules/${MODULE_NAME} -type f -name "*" | while read txt; do
+	find ${PWD}/Submodules/${MODULE_NAME} -type f -name "*" | while read txt; do
 		sed -i '' "s/__MODULE_NAME__/${MODULE_NAME}/" $txt
 		rename $file_regex $txt
 	done
@@ -47,7 +47,8 @@ DoneMessage() {
 
 HandleSelected() {
 	val=""
-	printf '2. Your Module Name: %s' "$val"
+	printf '2. Your Module Name:'
+	echo -n "$val"
 	while read -n 1 char; do
 		if [[ $char = "" ]]; then
 			# do whatever else you want with it here
@@ -58,16 +59,16 @@ HandleSelected() {
 		fi
 	done
 	echo "New Module ${MODULE_NAME} is creating...\n"
-	SUBMODULE_PATH="${PWD}/submodules/${MODULE_NAME}"
+	SUBMODULE_PATH="${PWD}/Submodules/${MODULE_NAME}"
 	unitest_path="${PWD}/templates/UnitTestSubModule"
 	normal_path="${PWD}/templates/SwiftNormalModule"
 	none_path="${PWD}/templates/NoneModule"
-	if [ "$mainmenuinput" = "1" ]; then
+	if [ "$mainmenuinput" = "2" ]; then
 		TEMPLATE_PATH=$unitest_path
-	elif [ "$mainmenuinput" = "2" ]; then
-		TEMPLATE_PATH=$normal_path
-	else
+	elif [ "$mainmenuinput" = "3" ]; then
 		TEMPLATE_PATH=$none_path
+	else
+		TEMPLATE_PATH=$normal_path
 	fi
 	CopyTemplate
 	RenameTemplate

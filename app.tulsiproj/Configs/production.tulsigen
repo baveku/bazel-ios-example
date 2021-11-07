@@ -1,22 +1,21 @@
 {
   "additionalFilePaths" : [
-    "App/BUILD",
-    "Submodules/LibTest/BUILD"
+    "App/BUILD"
   ],
   "buildTargets" : [
-    "//App:BazelAppDev"
+    "//App:BazelApp"
   ],
   "optionSet" : {
     "BazelBuildOptionsDebug" : {
       "p" : "$(inherited)",
       "t" : {
-        "//App:BazelAppDev" : "--define=scheme=develop"
+        "//App:BazelApp" : "--define=scheme=release"
       }
     },
     "BazelBuildOptionsRelease" : {
       "p" : "$(inherited)",
       "t" : {
-        "//App:BazelAppDev" : "--define=scheme=develop"
+        "//App:BazelApp" : "--define=scheme=release"
       }
     },
     "BazelBuildStartupOptionsDebug" : {
@@ -56,11 +55,8 @@
   "projectName" : "app",
   "sourceFilters" : [
     "App",
-    "Submodules/AppUI",
-    "Submodules/AppUI/Sources",
-    "Submodules/AppUI/Tests",
+    "Submodules",
     "Submodules/LibTest",
-    "Submodules/LibTest/Sources",
-    "Submodules/LibTest/Tests"
+    "Submodules/LibTest/Sources"
   ]
 }

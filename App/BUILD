@@ -1,7 +1,6 @@
 load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
-load("@build_bazel_rules_apple//apple:ios.bzl", "ios_application", "ios_framework")
-load("//bazel:plist_fragment.bzl", "plist_fragment")
-load("//bazel:constants.bzl", "PRODUCT_BUNDLE_IDENTIFIER_PREFIX", "BUILD_NUMBER", "APP_VERSION")
+load("@build_bazel_rules_apple//apple:ios.bzl", "ios_application")
+load("//bazel:constants.bzl", "app_name", "bundle_id")
 
 filegroup(
     name = "Assets",
@@ -12,26 +11,60 @@ filegroup(
 swift_library(
     name = "App_Classes",
     srcs = glob(["*.swift"]),
-	visibility = ["//visibility:public"],
-	data = [":Assets"],
-	deps = [
-		"//Submodules/LibTest:SwiftLib"
-	]
+    data = [":Assets"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "//Submodules/LibTest:SwiftLib",
+    ],
 )
 
 ios_application(
-    name = "App",
-    bundle_id = "{PRODUCT_BUNDLE_IDENTIFIER_PREFIX}.app".format(PRODUCT_BUNDLE_IDENTIFIER_PREFIX = PRODUCT_BUNDLE_IDENTIFIER_PREFIX),
+    name = app_name(scheme = "develop"),
+    app_icons = glob([":Assets/Assets.xcassets/**"]),
+    bundle_id = bundle_id(scheme = "develop"),
     families = [
         "iphone",
         "ipad",
     ],
     infoplists = [
-		"Info.plist"
-	],
-	app_icons = glob([":Assets/Assets.xcassets/**"]),
+        "Info.plist",
+    ],
     launch_storyboard = "LaunchScreen.storyboard",
     minimum_os_version = "10.0",
-	deps = [":App_Classes"],
     visibility = ["//visibility:public"],
+    deps = [":App_Classes"],
+)
+
+ios_application(
+    name = app_name(scheme = "staging"),
+    app_icons = glob([":Assets/Assets.xcassets/**"]),
+    bundle_id = bundle_id(scheme = "staging"),
+    families = [
+        "iphone",
+        "ipad",
+    ],
+    infoplists = [
+        "Info.plist",
+    ],
+    launch_storyboard = "LaunchScreen.storyboard",
+    minimum_os_version = "10.0",
+    visibility = ["//visibility:public"],
+    deps = [":App_Classes"],
+)
+
+ios_application(
+    name = app_name(scheme = "release"),
+    app_icons = glob([":Assets/Assets.xcassets/**"]),
+    bundle_id = bundle_id(scheme = "release"),
+    families = [
+        "iphone",
+        "ipad",
+    ],
+    infoplists = [
+        "Info.plist",
+    ],
+    launch_storyboard = "LaunchScreen.storyboard",
+    minimum_os_version = "10.0",
+    visibility = ["//visibility:public"],
+    deps = [":App_Classes"],
 )
