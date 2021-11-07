@@ -6,7 +6,6 @@ APP_NAME = "BazelApp"
 
 APP_VERSION = "1.0.0"
 
-# Compiler flags
 SWIFT_COMPILER_FLAGS = [
     # Look at the files as a unit instead of separately: compilation is faster
     # See: https://www.skilled.io/u/swiftsummit/swift-with-a-hundred-engineers
@@ -27,6 +26,11 @@ SWIFT_RELEASE_COMPILER_FLAGS = [
     # Enable the DEBUG flag, for using it in macros
     "-DRELEASE",
     # Make optimizations: compilation is faster
+    "-Osize",
+] + SWIFT_COMPILER_FLAGS
+
+SWIFT_STAGING_COMPILER_FLAGS = [
+    "-DSTAGING",
     "-Osize",
 ] + SWIFT_COMPILER_FLAGS
 
