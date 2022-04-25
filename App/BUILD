@@ -14,7 +14,7 @@ swift_library(
     data = [":Assets"],
     visibility = ["//visibility:public"],
     deps = [
-        "//Submodules/LibTest:SwiftLib",
+        "//Vendor/Texture",
     ],
 )
 

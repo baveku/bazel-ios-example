@@ -1,6 +1,4 @@
 import Foundation
-import AsyncDisplayKit
-import Comier
 import IGListKit
 
 open class Whatehell {
@@ -11,7 +9,7 @@ open class Whatehell {
 }
 
 public final class MainNode: ASMNode {
-	let buttonNode = ASActivityButtonNode()
+	let buttonNode = ASButtonNode()
 	
 	public override init() {
 		super.init()
@@ -20,7 +18,7 @@ public final class MainNode: ASMNode {
 	
 	public override func didLoad() {
 		super.didLoad()
-		buttonNode.activityView.color = .purple
+//		buttonNode.activityView.color = .purple
 		buttonNode.startLoading()
 	}
 	

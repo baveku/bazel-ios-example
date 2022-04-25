@@ -1,22 +1,21 @@
 {
   "additionalFilePaths" : [
-    "App/BUILD"
+    "App/BUILD",
+    "Submodules/AppUI/BUILD",
+    "Submodules/LibTest/BUILD"
   ],
   "buildTargets" : [
-    "//App:BazelApp"
+    "//App:App_Classes",
+    "//App:BazelAppDev",
+    "//Submodules/AppUI:AppUI",
+    "//Submodules/LibTest:SwiftLib"
   ],
   "optionSet" : {
     "BazelBuildOptionsDebug" : {
-      "p" : "$(inherited)",
-      "t" : {
-        "//App:BazelApp" : "--define=scheme=release"
-      }
+      "p" : "$(inherited)"
     },
     "BazelBuildOptionsRelease" : {
-      "p" : "$(inherited)",
-      "t" : {
-        "//App:BazelApp" : "--define=scheme=release"
-      }
+      "p" : "$(inherited)"
     },
     "BazelBuildStartupOptionsDebug" : {
       "p" : "$(inherited)"
@@ -52,10 +51,12 @@
       "p" : "$(inherited)"
     }
   },
-  "projectName" : "app",
+  "projectName" : "Prozer",
   "sourceFilters" : [
     "App",
     "Submodules",
+    "Submodules/AppUI",
+    "Submodules/AppUI/Sources",
     "Submodules/LibTest",
     "Submodules/LibTest/Sources"
   ]

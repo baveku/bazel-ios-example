@@ -6,6 +6,6 @@ submodule_unit_test(
     test_host = test_host(),
     visibility = ["//visibility:public"],
     deps = [
-        "//Vendor:Comier",
+        "//Vendor/Texture",
     ],
 )

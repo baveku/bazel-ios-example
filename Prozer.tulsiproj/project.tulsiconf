@@ -9,6 +9,6 @@
     "Submodules/AppUI",
     "Submodules/LibTest"
   ],
-  "projectName" : "app",
+  "projectName" : "Prozer",
   "workspaceRoot" : ".."
 }

@@ -1,6 +1,6 @@
 BAZEL=bazel
 MAIN_APP=//App:BazelApp
-APP_NAME=app
+APP_NAME=Prozer
 CARTHAGE =./sync.sh
 BAZEL_OPTS=--apple_platform_type=ios
 
@@ -23,8 +23,7 @@ app_graph:
 
 
 fetch: info
-	cd $(PWD)/Vendor; $(CARTHAGE) update --platform iOS --cache-builds;
-	$(BAZEL) fetch :*
+	bazel run @rules_pods//:update_pods -- --src_root ${PWD};
 
 dep_graph:
 	$(BAZEL) query --noimplicit_deps --notool_deps 'deps(//Vendor/$(dependency):$(dependency))'
@@ -36,7 +35,7 @@ clean: kill_xcode
 	$(BAZEL) clean
 
 project: kill_xcode
-	scripts/tulsigen $(APP_NAME).tulsiproj develop
+	scripts/tulsigen $(APP_NAME).tulsiproj dev
 	xed .
 
 kill_xcode:
@@ -45,10 +44,6 @@ kill_xcode:
 
 info:
 	$(BAZEL) info
-
-carthage_clean:
-	rm -rf ~/Library/Caches/org.carthage.CarthageKit
-	rm -rf /Vendor/Carthage
 
 create_module:
 	sh ./templates/create_module.sh
